@@ -19,7 +19,7 @@ class Search(ListView):
         if q and len(q) > 2:
             q = q.strip()
             if q:
-                q = "{}%".format(q)
+                q = "%{}%".format(q)
                 with connection.cursor() as cursor:
                     cursor.execute("""SELECT * FROM (SELECT (SELECT CONCAT(book_name,', ', date_part('year', publication_date)) AS book_name
                                              FROM book
