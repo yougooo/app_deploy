@@ -1,0 +1,10 @@
+[appservers]
+app-1 ansible_host=35.198.155.139
+app-2 ansible_host=35.198.170.227
+app-3 ansible_host=35.227.66.191
+
+[database]
+db-server-1 ansible_host=35.198.111.74
+
+[loadbalancers]
+lb-1 ansible_host=35.198.177.248
