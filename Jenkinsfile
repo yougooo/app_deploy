@@ -1,8 +1,20 @@
+#!/usr/bin/env groovy
+
 node {
     def app
-    stage('clone repo'){
-        
+    
+    stage('Clone repository') {
+        checkout scm
     }
 
+    stage('Build image') {
+        app = docker.build("django/images:${env.BUILD_NUMBER}", '.')
+    }
 
-      }
+    stage('Push image') {
+            docker.withRegistry('https://registry.hub.docker.com', '2eb78652-1b2e-4078-9ad3-8d9546dfecef') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+        }
+    }
+}
