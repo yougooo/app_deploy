@@ -8,7 +8,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("django/images:${env.BUILD_NUMBER}", '.')
+        app = docker.build("django/images:${env.BUILD_NUMBER}")
     }
 
     stage('Push image') {
