@@ -8,7 +8,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("django/images:${env.BUILD_NUMBER}")
+        app = docker.build("yougooo/library_app:${env.BUILD_NUMBER}")
     }
 
     stage('Push image') {
