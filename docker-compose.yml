@@ -1,21 +1,22 @@
 version: '2'  
 
 services:
+  db:
+    image: postgres:alpine
+
   web:
     image: yougooo/library_app:latest
-    command: bash -c "gunicorn ./library/library.wsgi -b 0.0.0.0:8000"
+    command: bash -c "gunicorn --env DJANGO_SETTINGS_MODULE=library.settings.production library.wsgi -b 0.0.0.0:8000"
+    restart: always
     depends_on:
       - db
 
   nginx:
     image: nginx:latest
     ports:
-      - "8000"
+      - "80"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - web
-  db:
-    image: postgres:latest
-
