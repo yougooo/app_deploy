@@ -12,7 +12,7 @@ SECRET_KEY = '^43_*qjp^deo1+xh%l0)yonf-g69xle_c#q-!-!n23+@y+h#ni'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '35.198.158.217']
+ALLOWED_HOSTS = ['*', '35.198.91.243']
 
 
 # Application definition
@@ -43,7 +43,7 @@ ROOT_URLCONF = 'library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'books_storage/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

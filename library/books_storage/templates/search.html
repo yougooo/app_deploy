@@ -1,0 +1,27 @@
+{% extends 'index.html'  %}
+{% block content %}	  
+   <p>found {{ count  }} results</p>
+   <div class='book_table'>
+   {% if books %}
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Author(s)</th>
+      </tr>
+    </thead>
+   {% for book,authors in books %}
+   <tbody>
+      <tr>
+      <td>{{ book }}</td>
+      <td>{{ authors }}</td>
+     </tr>
+  </tbody>
+   {% endfor %}
+  </table>
+   {% else %}
+      <p>try type more than 3 letters</p>
+   {% endif %}
+      </div>
+{% endblock content %}
+  
