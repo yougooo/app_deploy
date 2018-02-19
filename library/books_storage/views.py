@@ -3,9 +3,9 @@ from django.shortcuts import render_to_response
 from django.db import connection
 from .models import *
 
+
 def index(request):
     return render_to_response('index.html', {})
-
 
 
 class Search(ListView):
@@ -35,13 +35,7 @@ class Search(ListView):
             return queryset
         return []
 
-
     def get_context_data(self, **kwargs):
         context = super(Search, self).get_context_data(**kwargs)
         context['count'] = len(self.object_list)
         return context
-
-
-
-
-

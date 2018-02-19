@@ -1,6 +1,12 @@
 version: '2'  
 
-services:  
+services:
+  web:
+    image: yougooo/library_app:latest
+    command: bash -c "gunicorn ./library/library.wsgi -b 0.0.0.0:8000"
+    depends_on:
+      - db
+
   nginx:
     image: nginx:latest
     ports:
@@ -10,16 +16,6 @@ services:
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - web
-  web:
-    build: .
-    command: bash -c "gunicorn ./library/library.wsgi -b 0.0.0.0:8000"
-    depends_on:
-      - db
-    volumes:
-      - .:/code
-    expose:
-      - "8000"
-
   db:
     image: postgres:latest
 
