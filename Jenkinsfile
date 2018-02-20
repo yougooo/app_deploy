@@ -16,4 +16,9 @@ node {
             app.push("latest")
         }
     }
+    stage('Deploy image'){
+         sh "docker-compose rm web"
+         sh "docker-compose pull web"
+         sh "docker-compose up -d"
+    }
 }
