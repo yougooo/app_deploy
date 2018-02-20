@@ -15,7 +15,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def render_conf(docker_id_list):
     j2_env = Environment(loader=FileSystemLoader(CURRENT_DIR), trim_blocks=True)
-    conf = j2_env.get_template('conf_template.conf').render(ids=docker_id_list)
+    conf = j2_env.get_template('conf_template.j2').render(ids=docker_id_list)
     return conf
 
 
