@@ -1,0 +1,21 @@
+upstream web {
+  ip_hash;
+{% for docker_id in ids%}
+server {{docker_id}}:8000;
+{% endfor %}
+}
+
+server {
+	listen 80;
+        server_name localhost;
+
+        client_max_body_size 4G;
+
+        location /static/ {
+            alias /static/;
+        }
+
+        location / {
+            proxy_pass http://web;
+        }
+}
