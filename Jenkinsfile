@@ -23,8 +23,10 @@ node {
     }
 
     stage('Update nginx upstream'){
-         sh "rm config/nginx/django_1.conf"
+         sh "cat config/nginx/django.conf"
+         sh "ls config/nginx/"
          sh "python conf_generator.py"
          sh "docker-compose up -d"
+         sh "cat config/nginx/django.conf"
     }
 }
