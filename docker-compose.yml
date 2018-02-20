@@ -5,17 +5,20 @@ services:
   nginx:
     image: nginx
     ports:
-      - "8001:8001"
+      - "8000:8000"
+    depends_on:
+      - web
+    volumes:
+      - ./static:/static
+      - ./config/nginx:/etc/nginx/conf.d
 
   web:
     image: yougooo/library_app 
     command: bash -c "gunicorn --env DJANGO_SETTINGS_MODULE=library.settings.local library.wsgi -b 0.0.0.0:8000"
-    ports: 
-      - "8000:8000"
-    volumes:
-      - .:/code
     depends_on:
       - db
+    volumes:
+      - ./static:/static
 
   db:
     image: yougooo/library_db
