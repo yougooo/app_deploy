@@ -13,7 +13,7 @@ services:
       - ./config/nginx:/etc/nginx/conf.d
 
   web:
-    image: yougooo/library_app 
+    image: yougooo/library_app:latest 
     command: bash -c "gunicorn --env DJANGO_SETTINGS_MODULE=library.settings.local library.wsgi -b 0.0.0.0:8000"
     depends_on:
       - db
