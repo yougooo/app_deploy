@@ -17,8 +17,8 @@ node {
         }
     }
     stage('Deploy image'){
-         sh "docker-compose rm web"
          sh "docker-compose pull web"
+         sh "docker-compose down"
          sh "docker-compose up -d"
     }
 }
