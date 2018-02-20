@@ -5,5 +5,5 @@ from .views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
-    url(r'^search/$', Search.as_view(), name='search')]
+    url(r'^search$', Search.as_view(), name='search')]
 
