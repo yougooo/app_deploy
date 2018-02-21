@@ -18,15 +18,13 @@ node {
     }
 
     stage('Deploy image'){
-         sh "docker-compose up -d"
          sh "docker-compose down"
+         sh "docker-compose up -d"
          sh "docker-compose scale web=5"
     }
 
     stage('Update nginx upstream'){
-         sh "cat config/nginx/django.conf"
          sh "python conf_generator.py"
          sh "docker-compose restart nginx"
-         sh "cat config/nginx/django.conf"
     }
 }
