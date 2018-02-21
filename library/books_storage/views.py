@@ -40,4 +40,5 @@ class Search(ListView):
     def get_context_data(self, **kwargs):
         context = super(Search, self).get_context_data(**kwargs)
         context['count'] = len(self.object_list)
+        context['id'] = socket.gethostname()
         return context
