@@ -19,8 +19,7 @@ node {
 
     stage('Deploy image'){
          sh "docker-compose up -d"
-         sh "docker-compose up -d --no-deps --build web"
-         sh "docker-compose scale web=1"
+         sh "docker-compose scale web=5"
     }
 
     stage('Update nginx upstream'){
