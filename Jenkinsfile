@@ -20,7 +20,7 @@ node {
     stage('Deploy image'){
          sh "docker pull yougooo/library_app:latest"
          sh "docker-compose up -d"
-         sh "docker-compose scale web=5"
+         sh "docker-compose scale web=3"
     }
 
     stage('Update nginx upstream'){
