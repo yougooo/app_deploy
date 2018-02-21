@@ -5,7 +5,7 @@ import os
 import re
 import subprocess
 
-pattern = re.compile("(.{12})        yougooo/library_app")
+pattern = re.compile("(.{12})\s{8}yougooo/library_app")
 docker_image_data = subprocess.Popen("docker ps", shell=True, stdout=subprocess.PIPE)
 out = docker_image_data.stdout.read()
 app_id_list = pattern.findall(out)
