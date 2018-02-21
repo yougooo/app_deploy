@@ -18,7 +18,7 @@ node {
     }
 
     stage('Deploy image'){
-         sh "docker-compose down"
+         sh "docker pull yougooo/library_app:latest"
          sh "docker-compose up -d"
          sh "docker-compose scale web=5"
     }
