@@ -1,3 +1,4 @@
+[app link](http://35.198.91.243/)
 Tasks:
 - Automation preparing a system for  application deploy: create users,  install system depends, set up firewall; 
 - Containerize all app component: database, application code, load balancing; 
