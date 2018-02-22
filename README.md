@@ -104,7 +104,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: library
 ```
-Database image build from base PostgreSQL image, with dump scripts which start from default postgres image ENTRYPOINT. Maybe in production better use just process in container which connected for example to GCP sql instance. But in other cases docker database image is very fast way for deploy. 
+Database image build from base PostgreSQL image, with sql dump which start from default postgres ENTRYPOINT, it is mean database restore only when image start running. Maybe in production better use just process in container which connected for example to GCP sql instance. But in other cases docker database image is very fast way for deploy. 
 
 Share volume ./static with nginx and application and in nginx config define alias for static files. Because gunicorn not very good solution for handle static files.
 
