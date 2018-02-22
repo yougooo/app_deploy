@@ -105,9 +105,16 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: library
 ```
-Database image build from base PostgreSQL image, with sql dump which start from default postgres ENTRYPOINT, it is mean database restore only when image start running. Maybe in production better use just process in container which connected for example to GCP sql instance. But in other cases docker database image is very fast way for deploy. 
+Database image build from base PostgreSQL image, with sql dump which run from default postgres ENTRYPOINT, it is mean database restore only when image start running. Maybe in production better use just process in container which connected for example to GCP sql instance. But in other cases docker database image is very fast way for deploy. 
 
-Share volume ./static with nginx and application and in nginx config define alias for static files. Because gunicorn not very good solution for handle static files.
+```
+FROM postgres:alpine
+ADD postgres_db_dump.sql /docker-entrypoint-initdb.d
+ADD restore.sh /docker-entrypoint-initdb.d
+
+```
+
+Share volume ./static to containers application and nginx and define alias for static files in nginx config. Because gunicorn not very good solution for handle static files.
 
 Quick fix for updating nginx upstream, [conf generator](https://github.com/yougooo/app_deploy/blob/master/conf_generator.py) with jinja2 templats.   
 
