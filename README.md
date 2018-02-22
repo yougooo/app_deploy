@@ -29,6 +29,7 @@ WORKDIR /code/library
 
 With github and Jenkins plugin for github, add credential for github api access, after this we may start webhooks listening for full automation build process.
 ![alt text](http://makescreen.ru/i/dc4c066dd6f284e60a6bdd187181cf.png)
+
 After any commit to master branch, jenkins start running build with Dokerfile, after successful build jenkins push new image to public registry. Below Jenkins file, from this point we have CI: 
 
 ```groovy
