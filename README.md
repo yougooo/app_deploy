@@ -113,7 +113,7 @@ ADD postgres_db_dump.sql /docker-entrypoint-initdb.d
 ADD restore.sh /docker-entrypoint-initdb.d
 ```
 
-Share volume ./static to containers application and nginx and define alias for static files in nginx config. Because gunicorn not very good solution for handle static files.
+Share volume ./static to containers application and nginx, then define alias for static files in nginx config. Because gunicorn not very good solution for handle static files.
 
 Quick fix for updating nginx upstream, [conf generator](https://github.com/yougooo/app_deploy/blob/master/conf_generator.py) with jinja2 templats.   
 
