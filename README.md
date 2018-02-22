@@ -69,7 +69,7 @@ Continuous delivery start from continuous integration + more test automation + a
 So app in test, production or any other environments need database and webserver. Below demonstrate model how components interact with each other. 
 <p align="center"><img src =http://makescreen.ru/i/ebc3a8e4b84139b3d924977481dcfb.png /></p>
 
-Django have simple implementation HTTP servers, but it is only for quick developers test, not for production. That's why we need one more HTTP server. Pure python web framework like Flask, Tornado, Django, etc, don't know HTTP protocol. Here help WSGI(Web Server Gateway Interface) it is specification which give standard how python web application and web servers can interact. Okay but with default configurations web server like Apache or Nginx, don't know WSGI. It is mean we need web server which know WSGI and HTTP, in my case it is gunicorn. So in app nodes run gunicorn and connected to database container, with Nginx upstream call app nodesr. 
+Django have simple implementation HTTP servers, but it is only for quick developers test, not for production. That's why we need one more HTTP server. Pure python web framework like Flask, Tornado, Django, etc, don't know HTTP protocol. Here help WSGI(Web Server Gateway Interface) it is specification which give standard how python web application and web servers can interact. Okay but with default configurations web server like Apache or Nginx, don't know WSGI. It is mean we need web server which know WSGI and HTTP, in my case it is gunicorn. So in app nodes run gunicorn and connected to database container, with Nginx upstream call app nodes. 
 
 Below docker-compose file which may define how app componets look like in production, or any other environments.
 
