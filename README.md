@@ -108,7 +108,7 @@ Database image build from base PostgreSQL image, with sql dump which start from 
 
 Share volume ./static with nginx and application and in nginx config define alias for static files. Because gunicorn not very good solution for handle static files.
 
-Quick fix for update nginx upstream, [conf generator](https://github.com/yougooo/app_deploy/blob/master/conf_generator.py) with jinja2 templats.   
+Quick fix for updating nginx upstream, [conf generator](https://github.com/yougooo/app_deploy/blob/master/conf_generator.py) with jinja2 templats.   
 
 ```python
 def render_conf(docker_id_list):
