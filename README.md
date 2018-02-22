@@ -107,11 +107,10 @@ services:
 ```
 Database image build from base PostgreSQL image, with sql dump which run from default postgres ENTRYPOINT, it is mean database restore only when image start running. Maybe in production better use just process in container which connected for example to GCP sql instance. But in other cases docker database image is very fast way for deploy. 
 
-```
+```DOCKERFILE
 FROM postgres:alpine
 ADD postgres_db_dump.sql /docker-entrypoint-initdb.d
 ADD restore.sh /docker-entrypoint-initdb.d
-
 ```
 
 Share volume ./static to containers application and nginx and define alias for static files in nginx config. Because gunicorn not very good solution for handle static files.
