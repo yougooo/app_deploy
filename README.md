@@ -50,7 +50,7 @@ node {
     }
 ```
 
-Continuous delivery start from continuous integration + more test automation + automation deployment artifacts from, very close to continuous deployment, but here some action may done manual, like button "deploy to production". 
+Continuous delivery start from continuous integration + more test automation + automation deployment artifacts, very close to continuous deployment, but here some action may done manual, like button "deploy to production". 
 
 ```groovy
    stage('Deploy image'){
