@@ -26,5 +26,6 @@ node {
     stage('Update nginx upstream'){
          sh "python conf_generator.py"
          sh "docker-compose restart nginx"
+         sh "cat conf.log"
     }
 }
